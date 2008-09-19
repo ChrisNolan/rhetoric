@@ -45,3 +45,7 @@ Spec::Runner.configure do |config|
   # 
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end
+
+%W(matchers).each do |dir|
+  Dir["#{RAILS_ROOT}/spec/#{dir}/*.rb"].each {|file| require file}
+end
