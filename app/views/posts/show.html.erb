@@ -2,7 +2,14 @@
   <h1><%=h @post.title %></h1>
   <div class="published_at"><%=h @post.published_at %></div>
   <div class="author"><%=h @post.user_id %></div>
+  <div class="comments_count"><%= link_to pluralize(@post.comments_count, 'Comment'), "#comments" -%></div>
   <p><%=h @post.body %></p>
+</div>
+
+<a name="comments" />
+<div id="comments">
+  <%= link_to 'New Comment', new_post_comment_path(@post) %>
+  <%= render :partial => 'comments/comment', :collection => @post.comments %>
 </div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

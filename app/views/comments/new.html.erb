@@ -1,0 +1,16 @@
+<h1>New comment</h1>
+
+<% form_for(@comment, :url => post_comments_path(@post)) do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.label :title, 'Title' -%> <%= f.text_field :title %>
+  <%= f.label :body, 'Comment' -%> <%= f.text_area :body %>
+  <%= f.label :author, 'Name' -%> <%= f.text_field :author %>
+  <%= f.label :author_email, 'Email' -%> <%= f.text_field :author_email %>
+  <%= f.label :author_url, 'Website' -%> <%= f.text_field :author_url %>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', post_comments_path(@post) %>
