@@ -1,0 +1,46 @@
+# Initial Implementation
+
+Rhetoric should support everything that the nthBlogKit2 supported.  Of course it's un-documented and I haven't looked at the source in a couple of years so it's going to be a bit tough.  I'll use this doc initially to keep track of some of those features/abilities and to make note of how I might do the same thing in rails.  At the same time, I should get a 'fresh' start so to speak by re-doing it?  (or it'll just be a huge waste of time because there are a tonne of other blogkit options available already...)
+
+## Environment setup
+
+* basic rails project (wait... unless this is going to be the plugin, and the rails itself will be the sites)  -- so let's start it as a rails project, then after I'm so far along I'll split it out into the 'engine' itself, and a sample app along with my app which I'll deploy.
+* rspec and rspec on rails setup
+
+## Old DB
+
+blog2
+
+    ID$
+    Date$
+    Time$
+    Title$
+    Message$
+    Views
+    ViewsLast$
+    ServeAd
+    CommentsClosed
+    CreatedAt$
+    UpdatedAt$
+    PublishAt$ = Date$ + Time$
+
+blogComments
+
+    ID$,Seq$,Date$,Time$,Subject$,FromName$,FromURL$,Message$,Remote_IP$,User_Agent$
+    Email$, BlogSession$, Moderated, Spam
+
+blogEnclosures
+
+    ID$,Seq$,URL$,Length,Type$
+
+blogCat
+
+    ID$, Seq$, Category$
+
+blogRecentSearch
+
+    COUNTER$,SEARCH$,OPTIONS$,LASTDATE$,TOTAL
+
+blogRelated
+
+    ID1$, ID2$
