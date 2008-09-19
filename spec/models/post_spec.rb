@@ -12,6 +12,17 @@ module PostSpecHelper
     }
   end
   
+  def valid_comment_attributes
+    {
+      :title => "value for title",
+      :body => "value for body",
+      :author => "value for author",
+      :author_url => "value for author_url",
+      :author_email => "value for author_email",
+      :author_ip => "value for author_ip"
+    }
+  end
+  
 end
 
 describe Post do
@@ -35,6 +46,18 @@ describe Post do
   it 'should require a body' do
     @post.body = nil
     @post.should have_error_on(:body, :blank)
+  end
+  
+  it 'should have many comments' do
+    @post.save
+    lambda {
+      @post.comments << Comment.new(valid_comment_attributes)
+    }.should change(Comment, :count)
+    lambda {
+      @post.comments << Comment.new(valid_comment_attributes)
+    }.should change(Comment, :count)
+    @post.reload # why is the reload necessary for the counter_cache to be populated?
+    @post.comments_count.should == 2
   end
   
 end

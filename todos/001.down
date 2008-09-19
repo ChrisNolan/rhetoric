@@ -9,7 +9,9 @@ Rhetoric should support everything that the nthBlogKit2 supported.  Of course it
 
 ## Old DB
 
-blog2
+hardcoded setup (-> blogs)
+
+blog2 (-> posts)
 
     ID$
     Date$
@@ -24,7 +26,7 @@ blog2
     UpdatedAt$
     PublishAt$ = Date$ + Time$
 
-blogComments
+blogComments (-> comments)
 
     ID$,Seq$,Date$,Time$,Subject$,FromName$,FromURL$,Message$,Remote_IP$,User_Agent$
     Email$, BlogSession$, Moderated, Spam
