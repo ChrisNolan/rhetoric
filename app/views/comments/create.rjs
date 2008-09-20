@@ -1,0 +1,13 @@
+if current_object.valid?
+  page.insert_html :top, 'comments',
+    render(:partial => 'comments/comment.html.erb', :locals => {:comment => current_object})
+  page.visual_effect :highlight, "comment_#{current_object.id}"
+  page.replace_html "comments_count_#{current_object.post.id}",
+    current_object.post.reload.comments.size
+  page.replace_html 'new_comment',
+    render(:partial => 'comments/new.html.erb', :locals => {:comment => current_object.post.comments.new})
+else
+  page.replace_html 'new_comment',
+    render(:partial => 'comments/new.html.erb', :locals => {:comment => current_object})
+  page.visual_effect :highlight, 'new_comment'
+end

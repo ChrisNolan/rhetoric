@@ -1,3 +1,5 @@
 <h1>Comment on <%=h @comment.post.title %></h1>
-<%= render :partial => 'comment' %>
+<ul id="comments">
+  <%= render :partial => 'comment' %>
+</ul>
 <%= link_to 'Back', post_comments_path(@comment.post) %>

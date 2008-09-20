@@ -1,6 +1,7 @@
 <h1>Listing comments</h1>
 
-<%= render :partial => 'comment', :collection => @comments %>
-<br />
+<ul id="comments">
+  <%= render :partial => 'comment', :collection => @comments %>
+</ul>
 
 <%= link_to 'New comment', new_post_comment_path(@post) %>
