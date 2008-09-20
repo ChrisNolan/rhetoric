@@ -60,4 +60,8 @@ describe Post do
     @post.comments_count.should == 2
   end
   
+  it 'should have a rendered_body' do
+    @post.rendered_body.should_not be_blank
+  end
+  
 end

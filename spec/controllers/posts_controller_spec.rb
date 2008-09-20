@@ -159,6 +159,7 @@ describe PostsController do
     it "should destroy the requested post" do
       Post.should_receive(:find).with("37").and_return(mock_post)
       mock_post.should_receive(:destroy)
+      request.env["HTTP_REFERER"] = 'test'
       delete :destroy, :id => "37"
     end
   
