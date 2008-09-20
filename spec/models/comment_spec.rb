@@ -69,4 +69,14 @@ describe Comment do
     @comment.post.should be_kind_of(Post)
   end
   
+  describe 'display title' do
+    it 'should return the post title if none set'
+    it 'should return the post title plus the title if set'
+  end
+  
+  describe 'linked author' do
+    it 'should return the author if no url'
+    it 'should return an anchor for the author and the url if set'
+  end
+  
 end

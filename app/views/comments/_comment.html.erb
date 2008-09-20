@@ -1,10 +1,15 @@
 <li id="comment_<%= comment.id -%>">
   <a name="comment_<%= comment.id -%>" ></a>
-  <%=markdown h(comment.body) -%>
-  <div class="controls">
-    <%= link_to 'Show', post_comment_path(comment.post, comment) %>
+  <div class="info">
+    <%= link_to comment.id, post_comment_path(comment.post, comment) %>
+    <%= comment.created_at %>
+    Re: <%= comment.display_title %>
     <!-- TODO admin only 
     <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
     <%= link_to 'Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete %> -->
+  </div>
+  <%=markdown h(comment.body) -%>
+  <div class="author">
+    <%= comment.linked_author %>
   </div>
 </li>

@@ -1,0 +1,65 @@
+#posts,
+#comments {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li.post,
+#comments li {
+  list-style: none;
+  padding: 10px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+#comments li p {
+  margin-top: 0px;
+}
+
+#comments .info {
+  background-color: #ccc;
+  padding: 2px 4px;
+}
+
+#comments .author {
+  padding: 2px 4px;
+}
+
+.post h2 {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.post .info {
+  float:right;
+  margin:-20px 1em 0.5em;
+  text-align:center;
+  width:22%;
+}
+
+.post .info div {
+  background-color:white;
+  padding:15px;
+  width:75%;
+}
+
+.post .info .comments_count {
+  border:3px solid black;
+}
+
+.post .info .comments_count a {
+  display:block;
+}
+.post .info .comments_count a.comments_count_count {
+  font-size:3em;
+  text-decoration:none;
+  line-height: normal;
+}
+
+#comments_wrapper label {
+  float:left;
+  margin:0.3em 0 0;
+  padding:0.2em;
+  width:125px;
+}

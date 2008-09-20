@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   
-  has_many :comments
+  has_many :comments, :order => 'created_at DESC'
   
   validates_presence_of :title
   validates_presence_of :body

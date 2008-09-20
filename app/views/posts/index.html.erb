@@ -1,14 +1,9 @@
 <h1>Listing posts</h1>
 
-<ul>
+<ul id="posts">
 <%- for post in @posts -%>
-  <li>
-    <h2><%= link_to h(post.title), post %></h2>
-    <div class="published_at"><%=h post.published_at %></div>
-    <div class="author"><%=h post.user_id %></div>
-    <div class="comments_count"><%= pluralize post.comments_count, 'Comment'  %></div>
-    <p><%=h post.body %></p>
-    <!-- <%= link_to 'Edit', edit_post_path(post) %> TODO Admin Function only -->
+  <li class="post">
+    <%= render :partial => 'post', :locals => {:post => post} %>
   </li>
 <%- end -%>
 </ul>

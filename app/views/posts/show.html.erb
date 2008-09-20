@@ -1,19 +1,14 @@
 <div id="post_<%= @post.id -%>" class="post">
-  <h1><%=h @post.title %></h1>
-  <div class="published_at"><%=h @post.published_at %></div>
-  <div class="author"><%=h @post.user_id %></div>
-  <div class="comments_count"><%= link_to content_tag(:span, pluralize(@post.comments_count, 'Comment'), :id => "comments_count_#{@post.id}"), "#comments" -%></div>
-  <p><%=h @post.body %></p>
+  <%= render :partial => 'post', :locals => {:post => @post} %>
 </div>
 
-<a name="comments" />
 <div id="comments_wrapper">
-  <%= link_to 'New Comment', new_post_comment_path(@post) %>
+  <a name="comments"></a>
+  <h3>Leave a Comment</h3>
   <%= render :partial => 'comments/new', :locals => {:comment => @post.comments.new} %>
   <ul id="comments">
     <%= render :partial => 'comments/comment', :collection => @post.comments %>
   </ul>
 </div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

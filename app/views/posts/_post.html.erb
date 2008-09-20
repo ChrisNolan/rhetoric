@@ -1,0 +1,14 @@
+<h2><%= link_to h(post.title), post -%></h2>
+<div class="info">
+  <div class="comments_count">
+    <%= link_to post.comments_count, "#comments", :id => "comments_count_#{post.id}", :class => 'comments_count_count' -%>
+    <%= link_to "Comment#{'s' unless post.comments_count == 1 }", "#comments" -%>
+  </div>
+  <div class="published_at"><%=h post.published_at %></div>
+  <div class="author"><%=h post.user_id %></div>
+  <%= link_to 'Edit', edit_post_path(post) %>
+</div>
+<div class="content">
+  <%= markdown h(post.body) -%>
+</div>
+<div style="clear:both;"></div>

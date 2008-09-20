@@ -1,12 +1,10 @@
-<% form_remote_for(comment, :url => post_comments_path(comment.post)) do |f| %>
+<%- form_remote_for(comment, :url => post_comments_path(comment.post)) do |f| -%>
   <%= f.error_messages %>
 
-  <%= f.label :title, 'Title' -%> <%= f.text_field :title %>
-  <%= f.label :body, 'Comment' -%> <%= f.text_area :body %>
-  <%= f.label :author, 'Name' -%> <%= f.text_field :author %>
-  <%= f.label :author_email, 'Email' -%> <%= f.text_field :author_email %>
-  <%= f.label :author_url, 'Website' -%> <%= f.text_field :author_url %>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+  <p><%= f.label :title, 'Subject' -%> <%= f.text_field :title %></p>
+  <p><%= f.label :body, 'Comment' -%> <%= f.text_area :body, :rows => 7, :cols => 50 %></p>
+  <p><%= f.label :author, 'Your Name' -%> <%= f.text_field :author %></p>
+  <p><%= f.label :author_email, 'Your Email' -%> <%= f.text_field :author_email %> (Will not be displayed)</p>
+  <p><%= f.label :author_url, 'Your Website' -%> <%= f.text_field :author_url %></p>
+  <p><%= f.label :submit, '&nbsp;' -%> <%= f.submit 'Comment' %></p>
+<%- end -%>
