@@ -1,7 +1,7 @@
 <a name="comment_<%= comment.id -%>" />
 <p><%=markdown h(comment.body) %></p>
 <div class="controls">
-  <%= link_to 'Show', post_comment_path(@post, comment) %>
+  <%= link_to 'Show', post_comment_path(comment.post, comment) %>
   <!-- TODO admin only 
   <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
   <%= link_to 'Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete %> -->
