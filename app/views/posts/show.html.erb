@@ -1,5 +1,3 @@
-<%= javascript_include_tag 'prototype' %>
-<%= javascript_include_tag 'scriptaculous' %>
 <div id="post_<%= @post.id -%>" class="post">
   <h1><%=h @post.title %></h1>
   <div class="published_at"><%=h @post.published_at %></div>
@@ -11,9 +9,7 @@
 <a name="comments" />
 <div id="comments_wrapper">
   <%= link_to 'New Comment', new_post_comment_path(@post) %>
-  <div id="new_comment">
-    <%= render :partial => 'comments/new', :locals => {:comment => @post.comments.new} %>
-  </div>
+  <%= render :partial => 'comments/new', :locals => {:comment => @post.comments.new} %>
   <ul id="comments">
     <%= render :partial => 'comments/comment', :collection => @post.comments %>
   </ul>

@@ -1,6 +1,6 @@
 <li id="comment_<%= comment.id -%>">
-  <a name="comment_<%= comment.id -%>" />
-  <p><%=markdown h(comment.body) %></p>
+  <a name="comment_<%= comment.id -%>" ></a>
+  <%=markdown h(comment.body) -%>
   <div class="controls">
     <%= link_to 'Show', post_comment_path(comment.post, comment) %>
     <!-- TODO admin only 
