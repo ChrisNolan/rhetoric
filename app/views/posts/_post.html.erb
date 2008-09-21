@@ -4,11 +4,8 @@
     <%= link_to post.comments_count, "#comments", :id => "comments_count_#{post.id}", :class => 'comments_count_count' -%>
     <%= link_to "Comment#{'s' unless post.comments_count == 1 }", "#comments" -%>
   </div>
-  <ul class="tag_list">
-    <%- post.tags.each do |tag| %>
-      <li class="<%= 'last' if tag == post.tags.last -%>"><%= link_to tag.name.capitalize, tag_path(tag.to_s) %></li>
-    <%- end -%>
-  </ul>
+  <%= render :partial => 'tags/tag_list', :locals => {:taggable => post}%>
+  <%= render :partial => 'tags/add_form', :locals => {:taggable => post}%>
   <div class="published_at"><%=h post.published_at %></div>
   <div class="author"><%=h post.user_id %></div>
   <%= link_to 'Edit', edit_post_path(post) %>

@@ -1,0 +1,5 @@
+<ul class="tag_list">
+  <%- taggable.tags.each do |tag| %>
+    <li class="<%= 'last' if tag == taggable.tags.last -%>"><%= link_to tag.name, tag_path(tag.to_s) %></li>
+  <%- end -%>
+</ul>

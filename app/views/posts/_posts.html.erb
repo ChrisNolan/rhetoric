@@ -1,6 +1,6 @@
 <ul id="posts">
 <%- for post in posts -%>
-  <li class="post">
+  <li id="post_<%= post.id -%>" class="post">
     <%= render :partial => 'posts/post', :locals => {:post => post} %>
   </li>
 <%- end -%>

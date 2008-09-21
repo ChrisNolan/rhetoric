@@ -1,0 +1,4 @@
+page.select("#post_#{@post.id}>div.info>ul.tag_list").first.
+  replace render(:partial => 'tags/tag_list', :locals => {:taggable => @post})
+page.select("#post_#{@post.id}>div.info>ul.tag_list").first.visual_effect :highlight
+page.select("#edit_post_#{@post.id}>#new_tags").first.value = ''
