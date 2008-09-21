@@ -17,6 +17,10 @@ class Post < ActiveRecord::Base
     Markdown.new(body).to_html
   end
   
+  def self.per_page
+    15
+  end
+  
   # Import my old blog which I've exported to a custom csv file
   def Post.import(import_file)
     require 'fastercsv' # TODO make optional?

@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
   
   def current_objects
-    @current_objects ||= current_model.find :all, :order => 'published_at DESC'
+    @current_objects ||= current_model.paginate :page => params[:page], :order => 'published_at DESC'
   end
   
   def add_related
