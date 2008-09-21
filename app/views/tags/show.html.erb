@@ -1,0 +1,2 @@
+<h1>Tag: <%= @tag.name %></h1>
+<%= render :partial => 'posts/posts', :locals => {:posts => Post.find_tagged_with(@tag)}%>

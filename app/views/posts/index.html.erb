@@ -1,13 +1,6 @@
 <h1>Listing posts</h1>
 
-<ul id="posts">
-<%- for post in @posts -%>
-  <li class="post">
-    <%= render :partial => 'post', :locals => {:post => post} %>
-  </li>
-<%- end -%>
-</ul>
-
+<%= render :partial => 'posts' %>
 <br />
 
 <%= link_to 'New Post', new_post_path %> <!-- TODO admin only -->

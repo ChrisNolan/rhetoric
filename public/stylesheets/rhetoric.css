@@ -63,3 +63,19 @@ li.post,
   padding:0.2em;
   width:125px;
 }
+
+ul.tag_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tag_list li {
+  display: inline;
+}
+
+ul.tag_list li:after {
+  content: ", ";
+}
+ul.tag_list li.last:after {
+  content: " ";
+}
