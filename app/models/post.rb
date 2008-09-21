@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable
   
   has_many :comments, :order => 'created_at DESC'
-  has_many :related_posts
+  has_many :related_posts, :dependent => :destroy
   has_many :related, :through => :related_posts, :source => :related_post
   
   validates_presence_of :title

@@ -1,0 +1,4 @@
+<% remote_form_for post, :url => add_related_post_path(post), :html => {:id => "add_related_post_#{@post.id}", :class => 'admin_only'} do |f| -%>
+  <%= text_field_tag :related_post %>
+  <%= f.submit 'Add Related Post' %>
+<%- end -%>

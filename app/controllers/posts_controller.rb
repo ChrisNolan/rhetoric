@@ -21,4 +21,14 @@ class PostsController < ApplicationController
     
   end
   
+  def add_related
+    @post = Post.find params[:id]
+    @related = Post.find params[:related_post] rescue nil
+    if @related
+      @post.related << @related rescue flash.now[:error] = 'Already Related'
+    else
+      flash.now[:error] = "Please Select a Valid Post"
+    end
+  end
+  
 end

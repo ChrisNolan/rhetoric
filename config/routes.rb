@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :posts, :has_many => :comments
+  map.resources :posts, :has_many => :comments, :member => {:add_related => :put}
   map.resources :comments
   
   map.tag 'tags/:name', :controller => 'tags', :action => 'show'

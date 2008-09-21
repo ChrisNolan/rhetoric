@@ -1,0 +1,9 @@
+if flash[:error]
+  page.alert flash[:error]
+else
+  related_list_dom = "#post_#{@post.id}>div.info>ul.related_list"
+  page.select(related_list_dom).first.
+    replace render(:partial => 'posts/related_posts', :locals => {:post => @post})
+  page.select(related_list_dom).first.visual_effect :highlight
+  page.select("#add_related_post_#{@post.id}>#related_post").first.value = ''
+end
