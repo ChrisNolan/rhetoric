@@ -38,6 +38,11 @@ describe Post do
     duplicate.should have_error_on(:related_post_id, :taken)
   end
   
+  it 'should not be related to itself' do
+    duplicate = @post_1.related_posts.new :related_post => @post_1
+    duplicate.should have_error_on(:related_post_id, :blank)
+  end
+  
   it 'should handle the reverse relationship automatically' do
     @post_1.related << @post_2
     @post_2.reload
