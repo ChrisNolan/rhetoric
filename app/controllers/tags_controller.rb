@@ -9,8 +9,12 @@ class TagsController < ApplicationController
   
   def add
     @post = Post.find params[:id] # TODO make this more 'taggable' so it could tag more than one class
-    @post.tag_list.add params[:new_tags].split(',')
-    @post.save
+    unless params[:new_tags].blank?
+      @post.tag_list.add params[:new_tags].split(',')
+      @post.save
+    else
+      flash.now[:error] = 'No tags inputted'
+    end
   end
 
 end

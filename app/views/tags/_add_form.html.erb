@@ -1,4 +1,4 @@
-<% form_remote_for taggable, :url => add_tag_posts_path(taggable), :class => 'admin_only' do |f| -%>
+<% form_remote_for taggable, :url => add_tag_posts_path(taggable), :html => {:id => "add_tag_#{taggable.id}", :class => 'admin_only' } do |f| -%>
   <%= text_field_tag :new_tags %>
   <%= f.submit 'Add Tags' %>
 <%- end -%>

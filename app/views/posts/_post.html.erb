@@ -6,8 +6,8 @@
   </div>
   <%= render :partial => 'tags/tag_list', :locals => {:taggable => post}%>
   <%= render :partial => 'tags/add_form', :locals => {:taggable => post}%>
-  <%= render :partial => 'related_posts', :locals => {:post => post}%>
-  <%= render :partial => 'add_related_form', :locals => {:post => post}%>
+  <%= render :partial => 'posts/related_posts', :locals => {:post => post}%>
+  <%= render :partial => 'posts/add_related_form', :locals => {:post => post}%>
   <div class="published_at"><%=h post.published_at %></div>
   <div class="author"><%=h post.user_id %></div>
   <%= link_to 'Edit', edit_post_path(post) %>
