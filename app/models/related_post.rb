@@ -15,4 +15,23 @@ class RelatedPost < ActiveRecord::Base
     related_post.related_posts.create :related_post => post
   end
   
+  # Import my old blog which I've exported to a custom csv file
+  def RelatedPost.import(import_file)
+    require 'fastercsv' # TODO make optional?
+    puts "* #{import_file}"
+    FasterCSV.foreach(import_file) do |row|
+      post = Post.find_by_imported_id row[0] rescue nil
+      if post
+        begin
+          post.related << Post.find_by_imported_id(row[1])
+          puts "Imported #{post.imported_id} as #{post.id}"
+        rescue => e
+          puts "** Error importing #{post.imported_id} <-> #{row[1]} / #{e}"
+        end
+      else
+        puts "** #{row[0]} not yet imported"
+      end
+    end
+  end
+  
 end

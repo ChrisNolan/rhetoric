@@ -21,6 +21,10 @@ class PostsController < ApplicationController
     
   end
   
+  def current_objects
+    @current_objects ||= current_model.find :all, :order => 'published_at DESC'
+  end
+  
   def add_related
     @post = Post.find params[:id]
     @related = Post.find params[:related_post] rescue nil

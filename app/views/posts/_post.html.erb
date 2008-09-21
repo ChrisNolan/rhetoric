@@ -13,6 +13,6 @@
   <%= link_to 'Edit', edit_post_path(post) %>
 </div>
 <div class="content">
-  <%= markdown h(post.body) -%>
+  <%= post.rendered_body -%>
 </div>
 <div style="clear:both;"></div>
