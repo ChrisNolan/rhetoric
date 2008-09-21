@@ -64,7 +64,8 @@ li.post,
   width:125px;
 }
 
-ul.tag_list {
+ul.tag_list,
+ul.related_list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -78,4 +79,15 @@ ul.tag_list li:after {
 }
 ul.tag_list li.last:after {
   content: " ";
+}
+
+ul.related_list li {
+  margin-left: 10px;
+}
+
+ul.related_list:before {
+  content: 'Related Posts';
+}
+ul.related_list {
+  text-align: left;
 }

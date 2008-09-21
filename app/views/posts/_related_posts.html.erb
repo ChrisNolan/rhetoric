@@ -1,0 +1,5 @@
+<ul class="related_list">
+  <%- post.related.each do |p| %>
+    <li class="<%= 'last' if p == post.related.last -%>"><%= link_to p.to_s, p %></li>
+  <%- end -%>
+</ul>
