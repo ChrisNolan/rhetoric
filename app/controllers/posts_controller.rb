@@ -44,12 +44,24 @@ class PostsController < ApplicationController
   end
   
   def date_index
-    case params[:date].length
-    when 8
-      @posted_date = Date.parse params[:date]
-      @date_range = @posted_date.to_time...(@posted_date + 1.day).to_time
+    unless params[:date].blank?
+      case params[:date].length
+      when 8
+        starting_date = Date.parse params[:date]
+        @date_range = starting_date.to_time...(starting_date + 1.day).to_time
+      when 6
+        starting_date = Date.parse params[:date]+'01'
+        @date_range = starting_date.to_time...(starting_date + 1.month).to_time
+      when 4
+        starting_date = Date.parse params[:date]+'0101'
+        @date_range = starting_date.to_time...(starting_date + 1.year).to_time
+      else
+        flash[:error] = 'Unsupported Date Format'
+        redirect_to date_index_url(nil) && return
+      end
+      @page_title = "Posts Published #{@date_range.to_s(:date_archive)}"
+      @posts = Post.paginate :page => params[:page], :order => 'published_at', :conditions => {:published_at => @date_range}
     end
-    @posts = Post.paginate :page => params[:page], :order => 'published_at', :conditions => {:published_at => @date_range}
   end
   
 end

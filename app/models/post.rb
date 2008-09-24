@@ -21,6 +21,15 @@ class Post < ActiveRecord::Base
     15
   end
   
+  #
+  def Post.for_calendar
+    records = find(
+      :all, 
+      :select => "YEAR(published_at) as year, MONTH(published_at) as month, DAY(published_at) as day, COUNT(*) AS records",
+      :group => "year, month, day")
+    
+  end
+  
   # Import my old blog which I've exported to a custom csv file
   def Post.import(import_file)
     require 'fastercsv' # TODO make optional?

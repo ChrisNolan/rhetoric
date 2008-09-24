@@ -104,3 +104,4 @@ This was my tool that read a directory and displayed the photos from the file sy
 
 * Tags with '.'s  (e.g. chrisnolan.ca)
 * tag.taggings.count is really db heavy atm
+* I don't think my date's on import are the right timezone?  App is configured for UTC and my dates would have been EST I think... confirm and correct if necessary
