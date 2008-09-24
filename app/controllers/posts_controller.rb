@@ -35,4 +35,12 @@ class PostsController < ApplicationController
     end
   end
   
+  def title_index
+    if params[:page] == 'all'
+      params[:page] = 1
+      per_page = 2500
+    end
+    @posts = Post.paginate :page => params[:page], :per_page => (per_page || 50), :order => 'published_at DESC'
+  end
+  
 end

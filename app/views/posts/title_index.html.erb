@@ -1,0 +1,6 @@
+<ol>
+  <%- for post in @posts -%>
+    <li><%= link_to post.title, post %></li>
+  <%- end -%>
+</ol>
+<%= render :partial => 'paginate', :locals => {:posts => @posts }%>

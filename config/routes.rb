@@ -2,10 +2,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts, :has_many => :comments, :member => {:add_related => :put}
   map.resources :comments
   
-  map.tag 'tag/:name/:sort_order/', :controller => 'tags', :action => 'show'
-  map.paginated_tag 'tag/:name/:sort_order/:page', :controller => 'tags', :action => 'show'
+  map.tag 'tag/:name/:sort_order/:page', :controller => 'tags', :action => 'show', :sort_order => 'D', :page => 1
   map.tags 'tag/', :controller => 'tags', :action => 'index'
   map.add_tag_posts 'posts/:id/tags/add', :controller => 'tags', :action => 'add'
+  
+  map.title_index 'title/:page', :controller => 'posts', :action => 'title_index', :page => 1
 
   # The priority is based upon order of creation: first created -> highest priority.
 

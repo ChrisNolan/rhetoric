@@ -5,11 +5,4 @@
   </li>
 <%- end -%>
 </ul>
-<%- if posts.kind_of? WillPaginate::Collection -%>
-  <div class="pagination">
-    <div clas="page_info">
-      <%= page_entries_info posts %>
-    </div>
-    <%= will_paginate posts, :container => false %>
-  </div>
-<%- end -%>
+<%= render :partial => 'posts/paginate', :locals => {:posts => posts }%>
