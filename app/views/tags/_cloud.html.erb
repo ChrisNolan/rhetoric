@@ -1,0 +1,6 @@
+<%- sort_order = 'D' unless local_assigns.has_key? :sort_order %>
+<ol class="tag-cloud">
+<%- tag_cloud tags, %w(not-popular not-very-popular somewhat-popular popular very-popular ultra-popular) do |tag, css_class| -%>
+  <%= content_tag :li, "#{link_to tag.name, tag_path(tag.name, sort_order)} <span>is used #{pluralize tag.taggings.size, 'time'}</span>", :class => css_class %>
+<%- end -%>
+</ol>

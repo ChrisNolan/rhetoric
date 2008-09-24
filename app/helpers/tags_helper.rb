@@ -1,4 +1,8 @@
 module TagsHelper
+  def top_20_tags
+    render :partial => 'cloud', :locals => {:tags => Post.tag_counts(:order => 'count DESC, tags.name', :limit => 20).sort_by {|t|t.name} }
+  end
+  
   # See the README for an example using tag_cloud.
   def tag_cloud(tags, classes)
     return if tags.empty?

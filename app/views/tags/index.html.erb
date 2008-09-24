@@ -1,14 +1,6 @@
-<style>
-.tag-cloud .not-popular { font-size: 1em; }
-.tag-cloud .not-very-popular { font-size: 1.3em; }
-.tag-cloud .somewhat-popular { font-size: 1.6em; }
-.tag-cloud .popular { font-size: 1.9em; }
-.tag-cloud .very-popular { font-size: 2.2em; }
-.tag-cloud .ultra-popular { font-size: 2.5em; }
-</style>
-
-<div class="tag-cloud">
-<%- tag_cloud @tags, %w(not-popular not-very-popular somewhat-popular popular very-popular ultra-popular) do |tag, css_class| -%>
-  <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
-<%- end -%>
-</div>
+<h2>Top 20</h2>
+<%= top_20_tags -%>
+<h2>All Tags by most recent post</h2>
+<%= render :partial => 'cloud', :locals => {:tags => @tags, :sort_order => 'D'}%>
+<h2>All Tags in chronological order</h2>
+<%= render :partial => 'cloud', :locals => {:tags => @tags, :sort_order => 'A'}%>

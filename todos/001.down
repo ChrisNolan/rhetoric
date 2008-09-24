@@ -103,3 +103,4 @@ This was my tool that read a directory and displayed the photos from the file sy
 # Little thinks to watch out for
 
 * Tags with '.'s  (e.g. chrisnolan.ca)
+* tag.taggings.count is really db heavy atm

@@ -91,3 +91,16 @@ ul.related_list:before {
 ul.related_list {
   text-align: left;
 }
+ol.tag-cloud {padding:0px;}
+.tag-cloud li { 
+  display: inline;
+  padding-right: 3px;
+  padding-left: 1px;
+}
+.tag-cloud SPAN { position: absolute; left: -999px; width: 990px; }
+.tag-cloud .not-popular { font-size: 1em; }
+.tag-cloud .not-very-popular { font-size: 1.3em; }
+.tag-cloud .somewhat-popular { font-size: 1.6em; }
+.tag-cloud .popular { font-size: 1.9em; }
+.tag-cloud .very-popular { font-size: 2.2em; }
+.tag-cloud .ultra-popular { font-size: 2.5em; }

@@ -1,5 +1,6 @@
+<%- tags = taggable.tags unless local_assigns.has_key? :tags -%>
 <ul class="tag_list">
-  <%- taggable.tags.each do |tag| %>
-    <li class="<%= 'last' if tag == taggable.tags.last -%>"><%= link_to tag.name, tag_path(tag.to_s) %></li>
+  <%- tags.each do |tag| %>
+    <li class="<%= 'last' if tag == tags.last -%>"><%= link_to tag.name, tag_path(tag.to_s, 'D') %></li>
   <%- end -%>
 </ul>
