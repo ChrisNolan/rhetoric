@@ -70,6 +70,7 @@ ul.related_list {
   margin: 0;
   padding: 0;
 }
+.days li,
 .tag_list li {
   display: inline;
 }
