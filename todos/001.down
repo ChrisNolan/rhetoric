@@ -46,3 +46,60 @@ blogRecentSearch
 blogRelated
 
     ID1$, ID2$
+    
+# Actions
+
+* /archive
+    Just an text page that links to the various ways to view the archive of posts
+* /title/:page
+    A paginated list of just the post titles
+* /tag
+    Index of all tags -- first start with a section for the top 20 tags.
+    Then a list of all tags linked to their 'D' order, then a list of all tags linked to the 'A' order
+* /tag/:name/:order
+    List all posts for tab :name, in either ascending, or descending order
+    Common header that will switch the sort order, link to the rss feed, provide an email subscribe option and perhaps some links to other blog search/indexers for that tag
+    Common footer which includes the top 20 tags
+* /tag/:name/:order/:page
+    A specific page into the above.  when :page is not present it assumes page 1 of course
+* /tag/:name/:order/all
+    A none paginated view of the above
+* /date/
+    A nested list of year/year+month/year+month+day for every post made in the system
+* /date/:date
+    A list of posts that matches the specified :date -- :date can be just YYYY or YYYYMM or YYYYMMDD.
+    The 'calendar' is repeated at the bottom of each of these pages as well.
+* /feed/
+    A page which lists the various feed options.
+* /feed/main -- is the actual live feed (which does a soft re-direct to feedburner or something unless it's feedburner itself?)
+* /feed/category
+    index of all tags linked to their category specific feed "subscribe to 85 posts related to :name" as the title for the link
+* /feed/category/:name/Feed
+    a feed for just that tag
+* /comments/
+    - the most recent comments across all posts
+
+# Feeds
+
+# photos.pvx
+
+This was my tool that read a directory and displayed the photos from the file system... I use it all over so will need to come up with something again. The Random imager too.
+
+# Routes to redirect
+
+* /ID/x => posts/:to_param where x is the Post.imported_id
+* /archive/ID/x -- same as above
+* /archive/* -- chop out the archive -- so /archive/date/200705 => /date/200705
+* /tag/x => /tags/x -- why bother?  Just so I can be rail-ish for this one thing?
+* /feed/comments => /comments.atom or /comments.rss perhaps?
+
+# Static pages
+
+* /chrisnolan.phtml
+* /projects.phtml
+
+# Old pages that aren't even wrapped in the toolkit need to be available via public or...?
+
+# Little thinks to watch out for
+
+* Tags with '.'s  (e.g. chrisnolan.ca)

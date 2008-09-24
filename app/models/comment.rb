@@ -25,7 +25,7 @@ class Comment < ActiveRecord::Base
     puts "* #{import_file}"
     FasterCSV.foreach(import_file) do |row|
       post = Post.find_by_imported_id row[0]
-      comment = post.comments.new :title => row[2], :body => row[3], :created_at => Time.parse(row[4]), :author => row[5], :author_email => row[7], :author_url => row[6]
+      comment = post.comments.new :title => row[2], :body => row[3], :created_at => Time.parse(row[4]), :author => row[5], :author_email => (row[7] || 'dev@null.com'), :author_url => row[6]
       if comment.save
         puts "Imported Comment #{comment.display_title} for post #{post.id}"
       else

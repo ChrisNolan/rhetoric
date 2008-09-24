@@ -27,7 +27,7 @@ class Post < ActiveRecord::Base
     puts "* #{import_file}"
     FasterCSV.foreach(import_file) do |row|
       imported_id = row[0]
-      imported_body = imported_id.to_i > 1003 ? row[2] : row[2].gsub('\n', "\n\n")
+      imported_body = imported_id.to_i > 1003 ? row[2].gsub('\n', "\n") : row[2].gsub('\n', "\n\n")
       post = Post.new :imported_id => imported_id, :title => row[1], :body => imported_body, :published_at => Time.parse(row[3])
       post.tag_list = row[4]
       if post.save
