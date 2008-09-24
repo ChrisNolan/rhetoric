@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    @tags = Post.tag_counts
+    @tags = Post.tag_counts :order => :name
   end
 
   def show
