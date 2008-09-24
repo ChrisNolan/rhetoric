@@ -43,4 +43,13 @@ class PostsController < ApplicationController
     @posts = Post.paginate :page => params[:page], :per_page => (per_page || 50), :order => 'published_at DESC'
   end
   
+  def date_index
+    case params[:date].length
+    when 8
+      @posted_date = Date.parse params[:date]
+      @date_range = @posted_date.to_time...(@posted_date + 1.day).to_time
+    end
+    @posts = Post.paginate :page => params[:page], :order => 'published_at', :conditions => {:published_at => @date_range}
+  end
+  
 end

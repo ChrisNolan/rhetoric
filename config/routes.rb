@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.add_tag_posts 'posts/:id/tags/add', :controller => 'tags', :action => 'add'
   
   map.title_index 'title/:page', :controller => 'posts', :action => 'title_index', :page => 1
+  map.date_index 'date/:date', :controller => 'posts', :action => 'date_index' #, :date => nil
 
   # The priority is based upon order of creation: first created -> highest priority.
 
