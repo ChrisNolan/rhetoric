@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
   validates_presence_of :post_id, :body, :author, :author_email
   
   def display_title
-    if title.blank?
+    if title.blank? or title == post.title
       post.title
     else
       post.title + " :: " + title

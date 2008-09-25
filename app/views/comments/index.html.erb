@@ -4,4 +4,13 @@
   <%= render :partial => 'comment', :collection => @comments %>
 </ul>
 
-<%= link_to 'New comment', new_post_comment_path(@post) %>
+<%= link_to 'New comment', new_post_comment_path(@post) if @post %>
+
+<%- if @comments.kind_of? WillPaginate::Collection -%>
+  <div class="pagination">
+    <div clas="page_info">
+      <%= page_entries_info @comments %>
+    </div>
+    <%= will_paginate @comments, :container => false %>
+  </div>
+<%- end -%>

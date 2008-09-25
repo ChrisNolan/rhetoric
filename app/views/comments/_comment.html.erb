@@ -1,7 +1,7 @@
 <li id="comment_<%= comment.id -%>">
   <a name="comment_<%= comment.id -%>" ></a>
   <div class="info">
-    <%= link_to comment.id, post_comment_path(comment.post, comment) %>
+    <%= link_to comment.id, post_path(comment.post) + "#comment_#{comment.id}", :title => comment.display_title %>
     <%= comment.created_at %>
     Re: <%= comment.display_title %>
     <!-- TODO admin only 

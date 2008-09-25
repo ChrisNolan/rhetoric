@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   end
   
   def current_objects
-    @current_objects ||= current_model.find :all, :order => 'created_at DESC'
+    @current_objects ||= current_model.paginate :order => 'created_at DESC', :page => params[:page]
   end
   
 end
