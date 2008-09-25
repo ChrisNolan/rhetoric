@@ -8,12 +8,12 @@ module PostsHelper
       daily_posts_per_year = daily_posts.select{|daily|daily.year == year}
       unless daily_posts_per_year.empty?
         html << '<ul class="years">'
-        html << "<li>#{year}</li>\n"
+        html << "<li>#{link_to year, date_index_path(year)}</li>\n"
         for month in 1..12
           daily_posts_per_month = daily_posts_per_year.select{|daily|daily.month == month.to_s}
           unless daily_posts_per_month.empty?
             html << '<ul class="months">'
-            html << "<li>#{month}</li>\n"
+            html << "<li>#{link_to month, date_index_path(year + sprintf('%.2d', month))}</li>\n"
             html << '<ul class="days">'
             for posted_day in daily_posts_per_month
               day_of_month = Date.parse "#{posted_day.year}-#{posted_day.month}-#{posted_day.day}"
