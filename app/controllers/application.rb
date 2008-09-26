@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+  
+  before_filter do |c|
+    Site.current = nil
+    Site.current = Site.find_by_url c.request.env['HTTP_HOST']
+  end
 end

@@ -21,8 +21,16 @@ class PostsController < ApplicationController
     
   end
   
+  def current_object
+    if params[:id]
+      @current_object ||= current_model.find_site (params[:id])
+    else
+      @current_object ||= current_model.new
+    end
+  end
+  
   def current_objects
-    @current_objects ||= current_model.paginate :page => params[:page], :order => 'published_at DESC'
+    @current_objects ||= Site.current.posts.paginate :page => params[:page], :order => 'published_at DESC'
   end
   
   def add_related

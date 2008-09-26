@@ -15,19 +15,19 @@ class CreateSites < ActiveRecord::Migration
     
     rename_column :posts, :blog_id, :site_id
     add_index :posts, [:site_id]
-    add_column :comments, :blog_id, :integer
-    add_index :comments, [:blog_id, :post_id]
-    add_column :tags, :blog_id, :integer
-    add_index :tags, [:blog_id, :name]
+    add_column :comments, :site_id, :integer
+    add_index :comments, [:site_id, :post_id]
+    add_column :tags, :site_id, :integer
+    add_index :tags, [:site_id, :name]
   end
 
   def self.down
     drop_table :sites
     remove_index :posts, :site_id
     rename_column :posts, :site_id, :blog_id
-    remove_index :comments, [:blog_id, :post_id]
-    remove_column :comments, :blog_id
-    remove_index :tags, [:blog_id, :name]
-    remove_column :tags, :blog_id
+    remove_index :comments, [:site_id, :post_id]
+    remove_column :comments, :site_id
+    remove_index :tags, [:site_id, :name]
+    remove_column :tags, :site_id
   end
 end

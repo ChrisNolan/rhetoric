@@ -1,13 +1,15 @@
 class Post < ActiveRecord::Base
   acts_as_taggable
+  by_site
   
   has_many :comments, :dependent => :destroy, :order => 'created_at DESC'
   has_many :related_posts, :dependent => :destroy
   has_many :related, :through => :related_posts, :source => :related_post
   
+  validates_presence_of :site_id
   validates_presence_of :title
   validates_presence_of :body
-  validates_uniqueness_of :imported_id, :on => :create
+  validates_uniqueness_of :imported_id, :on => :create, :allow_nil => true
   
   def to_s
     title
@@ -18,7 +20,7 @@ class Post < ActiveRecord::Base
   end
   
   def self.per_page
-    15
+    Site.current.per_page || 15
   end
   
   #

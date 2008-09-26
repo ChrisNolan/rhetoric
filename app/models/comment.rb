@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
   
+  by_site
   belongs_to :post, :counter_cache => true
   
   validates_presence_of :post_id, :body, :author, :author_email
