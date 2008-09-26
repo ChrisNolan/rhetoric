@@ -29,4 +29,8 @@ module PostsHelper
     html << '</ul>'
   end
   
+  def sidebar_headlines
+    render :partial => 'posts/headlines', :locals => {:posts => Post.headlines}
+  end
+  
 end

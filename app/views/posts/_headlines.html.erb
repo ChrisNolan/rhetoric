@@ -1,0 +1,6 @@
+<h3><%= Site.current && Site.current.display_headlines_title %></h3>
+<ol id="headlines">
+  <%- for post in posts -%>
+    <li><%= link_to post.title, post %></li>
+  <%- end -%>
+</ol>

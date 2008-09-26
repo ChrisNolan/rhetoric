@@ -22,6 +22,10 @@ class Post < ActiveRecord::Base
     Site.current.per_page || 15
   end
   
+  def Post.headlines
+    find_site :all, :order => 'published_at DESC', :limit => Site.current.headlines_limit if Site.current
+  end
+  
   #
   def Post.for_calendar
     records = find(
