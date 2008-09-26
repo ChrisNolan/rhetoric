@@ -16,5 +16,9 @@ class ApplicationController < ActionController::Base
   before_filter do |c|
     Site.current = nil
     Site.current = Site.find_by_url c.request.env['HTTP_HOST']
+    # you can over-ride any of the views by adding them to the extra view_path
+    #  e.g. adding a apps/views/yoursite.com/layouts/application.html.erb it'll be rendered instead of the base.
+    c.prepend_view_path RAILS_ROOT + "/app/views/#{Site.current.url}"
   end
+  
 end
