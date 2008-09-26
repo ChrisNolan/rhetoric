@@ -1,0 +1,43 @@
+<p>
+  <b>User:</b>
+  <%=h @site.user_id %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @site.url %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @site.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @site.description %>
+</p>
+
+<p>
+  <b>Keywords:</b>
+  <%=h @site.keywords %>
+</p>
+
+<p>
+  <b>Per page:</b>
+  <%=h @site.per_page %>
+</p>
+
+<p>
+  <b>Headlines max:</b>
+  <%=h @site.headlines_max %>
+</p>
+
+<p>
+  <b>Headlines title:</b>
+  <%=h @site.headlines_title %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>

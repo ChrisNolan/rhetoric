@@ -85,6 +85,11 @@ blogRelated
 
 This was my tool that read a directory and displayed the photos from the file system... I use it all over so will need to come up with something again. The Random imager too.
 
+# Email
+
+* send email to blog author on new comment
+* allow blog author to post via email
+
 # Routes to redirect
 
 * /ID/x => posts/:to_param where x is the Post.imported_id
@@ -94,6 +99,8 @@ This was my tool that read a directory and displayed the photos from the file sy
 * /feed/comments => /comments.atom or /comments.rss perhaps?
 
 # Static pages
+
+Maybe just convert them to posts and do a redirect?
 
 * /chrisnolan.phtml
 * /projects.phtml

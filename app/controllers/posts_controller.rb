@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     response_for :index do |format|
       format.html
       format.xml {render :xml => current_objects.to_xml({
-        :except => [:id, :blog_id, :body, :user_id, :created_at, :updated_at],
+        :except => [:id, :site_id, :body, :user_id, :created_at, :updated_at],
         :methods => [:rendered_body, :to_param]
       })}
     end
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     response_for :show do |format|
       format.html
       format.xml {render :xml => current_object.to_xml({
-        :except => [:id, :blog_id, :body, :user_id, :created_at, :updated_at],
+        :except => [:id, :site_id, :body, :user_id, :created_at, :updated_at],
         :methods => [:rendered_body, :to_param]
       })}
     end

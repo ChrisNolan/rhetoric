@@ -4,7 +4,7 @@ module CommentSpecHelper
   
   def valid_post_attributes
     {
-      :blog_id => "1",
+      :site_id => "1",
       :title => "value for title",
       :body => "value for body",
       :published_at => Time.now,

@@ -1,0 +1,34 @@
+<h1>Listing sites</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Url</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Keywords</th>
+    <th>Per page</th>
+    <th>Headlines max</th>
+    <th>Headlines title</th>
+  </tr>
+
+<% for site in @sites %>
+  <tr>
+    <td><%=h site.user_id %></td>
+    <td><%=h site.url %></td>
+    <td><%=h site.title %></td>
+    <td><%=h site.description %></td>
+    <td><%=h site.keywords %></td>
+    <td><%=h site.per_page %></td>
+    <td><%=h site.headlines_max %></td>
+    <td><%=h site.headlines_title %></td>
+    <td><%= link_to 'Show', site %></td>
+    <td><%= link_to 'Edit', edit_site_path(site) %></td>
+    <td><%= link_to 'Destroy', site, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New site', new_site_path %>

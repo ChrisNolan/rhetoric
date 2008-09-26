@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.resources :posts, :has_many => :comments, :member => {:add_related => :put}
   map.resources :comments
+  map.resources :sites
   
   map.tag 'tag/:name/:sort_order/:page', :controller => 'tags', :action => 'show', :sort_order => 'D', :page => 1
   map.tags 'tag/', :controller => 'tags', :action => 'index'
