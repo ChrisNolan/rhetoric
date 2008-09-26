@@ -1,15 +1,16 @@
 class Tag < ActiveRecord::Base
+  by_site # TODO rhetoric specific... shouldn't really be in the plugin
   has_many :taggings, :dependent => :destroy
   
   validates_presence_of :name
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name, :scope => :site_id
   
   cattr_accessor :destroy_unused
   self.destroy_unused = false
   
   # LIKE is used for cross-database case-insensitivity
   def self.find_or_create_with_like_by_name(name)
-    find(:first, :conditions => ["name LIKE ?", name]) || create(:name => name)
+    find_site(:first, :conditions => ["name LIKE ?", name]) || create(:name => name)
   end
   
   def ==(object)
@@ -34,7 +35,7 @@ class Tag < ActiveRecord::Base
     #  :at_least - Exclude tags with a frequency less than the given value
     #  :at_most - Exclude tags with a frequency greater than the given value
     def counts(options = {})
-      find(:all, options_for_counts(options))
+      find_site(:all, options_for_counts(options))
     end
     
     def options_for_counts(options = {})
