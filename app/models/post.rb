@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
   has_many :related_posts, :dependent => :destroy
   has_many :related, :through => :related_posts, :source => :related_post
   
-  validates_presence_of :site_id
   validates_presence_of :title
   validates_presence_of :body
   validates_uniqueness_of :imported_id, :on => :create, :allow_nil => true

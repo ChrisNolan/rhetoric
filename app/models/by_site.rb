@@ -4,6 +4,8 @@ module BySite
     def by_site(options={})
       belongs_to :site
       
+      validates_presence_of :site_id
+      
       before_validation :set_site
       
       extend ClassMethods
