@@ -1,4 +1,4 @@
-<h2><%= link_to h(post.title), post -%></h2>
+<%= content_tag :h2, link_to(h(post.title), post) unless local_assigns.has_key? :hide_header -%>
 <div class="info">
   <div class="comments_count">
     <%= link_to post.comments_count, "#comments", :id => "comments_count_#{post.id}", :class => 'comments_count_count' -%>
