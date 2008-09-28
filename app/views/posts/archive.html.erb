@@ -1,0 +1,13 @@
+<%= content_tag :h1, @page_title %>
+<p>
+  View the archive by
+  <ul>
+    <li><%= link_to 'Tag/Category/Keyword', tags_path -%></li>
+    <li><%= link_to 'Date', date_index_path -%></li>
+    <li><%= link_to 'Title', title_index_path -%> (<%= link_to 'all', title_index_path(:page => 'all') -%>)</li>
+  </ul>
+</p>
+
+<p>
+  View the <%= link_to 'most recent comments', comments_path %>.
+</p>

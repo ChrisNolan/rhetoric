@@ -46,6 +46,10 @@ class PostsController < ApplicationController
     end
   end
   
+  def archive
+    @page_title = 'Blog Archive'
+  end
+  
   def title_index
     if params[:page] == 'all'
       params[:page] = 1
