@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable
   by_site
   
+  belongs_to :user
   has_many :comments, :dependent => :destroy, :order => 'created_at DESC'
   has_many :related_posts, :dependent => :destroy
   has_many :related, :through => :related_posts, :source => :related_post

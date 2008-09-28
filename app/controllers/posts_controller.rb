@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  
+  before_filter :login_required, :except => [:index, :show, :title_index, :date_index]
+  
   make_resourceful do
     actions :all
     # publish :xml, :attributes => [:title, :rendered_body] # TODO this fails my tests, but the respond_to block below doesn't.  I think maybe it can handle the .xml, but not the request.env["HTTP_ACCEPT"] = "application/xml" ?

@@ -2,4 +2,5 @@
   <div class="sidebar-item">
     <%= sidebar_headlines %>
   </div>
+  <%= content_tag :div, "#{current_user.name} - #{link_to 'logout', logout_path}", :class => 'sidebar-item' if logged_in? %>
 </div>

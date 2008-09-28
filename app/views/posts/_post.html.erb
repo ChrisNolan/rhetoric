@@ -9,7 +9,7 @@
   <%= render :partial => 'posts/related_posts', :locals => {:post => post}%>
   <%= render :partial => 'posts/add_related_form', :locals => {:post => post}%>
   <div class="published_at"><%= link_to post.published_at, date_index_url(post.published_at.to_date.to_s(:number)) %></div>
-  <div class="author"><%=h post.user_id %></div>
+  <div class="author"><%=h post.user.name %></div>
   <%= link_to 'Edit', edit_post_path(post) %>
 </div>
 <div class="content">

@@ -1,4 +1,7 @@
 class TagsController < ApplicationController
+  
+  before_filter :login_required, :only => [:add]
+  
   def index
     @tags = Post.site_tag_counts :order => :name
   end
