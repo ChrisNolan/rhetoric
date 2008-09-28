@@ -2,5 +2,4 @@
 
 <%= render :partial => 'posts' %>
 <br />
-
-<%= link_to 'New Post', new_post_path %> <!-- TODO admin only -->
+<%= link_to 'New Post', new_post_path, :class => 'if_logged_in', :style => 'display:none' %>
