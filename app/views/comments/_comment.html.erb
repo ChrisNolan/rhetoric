@@ -1,4 +1,4 @@
-<li id="comment_<%= comment.id -%>">
+<%- content_tag :li, :id => "comment_#{comment.id}" do -%>
   <a name="comment_<%= comment.id -%>" ></a>
   <div class="info">
     <%= link_to comment.id, post_path(comment.post) + "#comment_#{comment.id}", :title => comment.display_title %>
@@ -12,4 +12,4 @@
   <div class="author">
     <%= comment.linked_author %>
   </div>
-</li>
+<%- end -%>
