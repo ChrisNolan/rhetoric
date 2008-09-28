@@ -29,8 +29,8 @@ class Post < ActiveRecord::Base
   
   #
   def Post.for_calendar
-    records = find(
-      :all, 
+    records = find_site(
+      :all,
       :select => "YEAR(published_at) as year, MONTH(published_at) as month, DAY(published_at) as day, COUNT(*) AS records",
       :group => "year, month, day")
     

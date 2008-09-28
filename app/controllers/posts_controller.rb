@@ -51,7 +51,7 @@ class PostsController < ApplicationController
       params[:page] = 1
       per_page = 2500
     end
-    @posts = Post.paginate :page => params[:page], :per_page => (per_page || 50), :order => 'published_at DESC'
+    @posts = Site.current.posts.paginate :page => params[:page], :per_page => (per_page || 50), :order => 'published_at DESC'
   end
   
   def date_index
@@ -71,7 +71,7 @@ class PostsController < ApplicationController
         redirect_to date_index_url(nil) && return
       end
       @page_title = "Posts Published #{@date_range.to_s(:date_archive)}"
-      @posts = Post.paginate :page => params[:page], :order => 'published_at', :conditions => {:published_at => @date_range}
+      @posts = Site.current.posts.paginate :page => params[:page], :order => 'published_at', :conditions => {:published_at => @date_range}
     end
   end
   
