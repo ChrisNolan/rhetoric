@@ -7,6 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <%= stylesheet_link_tag 'scaffold.css' %>
     <%= stylesheet_link_tag 'rhetoric.css' %>
+    <%= stylesheet_link_tag "#{Site.current.url}.css" if Site.current %>
     <%= javascript_include_tag 'prototype' %>
     <%= javascript_include_tag 'scriptaculous' %>
     <%= javascript_include_tag 'application' %>

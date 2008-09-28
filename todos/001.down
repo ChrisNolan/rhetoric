@@ -79,13 +79,18 @@ blogRelated
 * /comments/
     - the most recent comments across all posts
 
-# Feeds
+# Old Features
 
-# photos.pvx
+Commentors are remembered via a session token so when they return their info is saved and re-displayed.
+Also, if they are visiting with the same token they can delete their post as well.
+
+## Feeds
+
+## photos.pvx
 
 This was my tool that read a directory and displayed the photos from the file system... I use it all over so will need to come up with something again. The Random imager too.
 
-# Email
+## Email
 
 * send email to blog author on new comment
 * allow blog author to post via email

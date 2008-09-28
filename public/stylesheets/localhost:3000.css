@@ -1,0 +1,11 @@
+/*
+To customize the css for each site, just place a stylesheet here named after your site url.
+
+e.g. chrisnolan.ca.css would be the css for that site
+
+This is the closest we'll get to theming I think, so send a pull request if you'd like your style included for everyone to use.
+
+*/
+ul.related_list:before {
+  content: 'Related Posts';
+}

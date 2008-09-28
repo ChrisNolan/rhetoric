@@ -95,9 +95,6 @@ ul.related_list li {
   margin-left: 10px;
 }
 
-ul.related_list:before {
-  content: 'Related Posts';
-}
 ul.related_list {
   text-align: left;
 }
